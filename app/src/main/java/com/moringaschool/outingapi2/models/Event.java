@@ -4,6 +4,9 @@ package com.moringaschool.outingapi2.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Event {
 
     @SerializedName("attending_count")
