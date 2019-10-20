@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.moringaschool.outingapi2.models.Event;
@@ -27,10 +29,13 @@ import retrofit2.Response;
 public class ApiActivity extends AppCompatActivity {
     private static final String TAG = ApiActivity.class.getSimpleName();
 
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.listView) ListView mListView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
+
+    private ApiArrayAdapter mAdapter;
+
+    public List<Event> events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +43,8 @@ public class ApiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_api);
         ButterKnife.bind(this);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String event = ((TextView)view).getText().toString();
-                Toast.makeText(ApiActivity.this, event, Toast.LENGTH_LONG).show();
-            }
-        });
-
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText("Here are all the events near: " + location);
         System.out.println(location);
         YelpApi client = YelpClient.getClient();
 
@@ -60,20 +56,13 @@ public class ApiActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Event> eventsList = response.body().getEvents();
-                    String[] events = new String[eventsList.size()];
-
-
-                    for (int i = 0; i < events.length; i++){
-                        events[i] = eventsList.get(i).getName();
-                    }
-
-
-
-                    ArrayAdapter adapter
-                            = new ApiArrayAdapter(ApiActivity.this, android.R.layout.simple_list_item_1, events);
-                    mListView.setAdapter(adapter);
-                    System.out.println(eventsList);
+                    events = response.body().getEvents();
+                    mAdapter = new ApiArrayAdapter(ApiActivity.this, events);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(ApiActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
 
                     showEvents();
                 } else {
@@ -101,8 +90,7 @@ public class ApiActivity extends AppCompatActivity {
     }
 
     private void showEvents() {
-        mListView.setVisibility(View.VISIBLE);
-        mLocationTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {
