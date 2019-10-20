@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.outingapi2.models.Event;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -57,6 +58,7 @@ public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.Restau
         }
 
         public void bindRestaurant(Event event) {
+            Picasso.get().load(event.getImageUrl()).into(mEventImageView);
             mEventNameTextView.setText(event.getName());
             mCategoryTextView.setText(event.getDescription());
 
