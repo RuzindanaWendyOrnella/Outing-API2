@@ -1,6 +1,8 @@
 package com.moringaschool.outingapi2;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -27,17 +29,16 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EventInfoFragment extends Fragment {
+public class EventInfoFragment extends Fragment implements View.OnClickListener{
 
-    @BindView(R.id.restaurantImageView) ImageView mRestaurantImageView;
+    @BindView(R.id.eventImageView) ImageView mEventImageView;
+    @BindView(R.id.websiteTextView) TextView mWebsiteTextView;
+    @BindView(R.id.eventNameTextView) TextView mEventNameTextView;
 
-    @BindView(R.id.restaurantNameTextView) TextView mRestaurantNameTextView;
-
-    @BindView(R.id.phoneTextView) TextView mPhoneLabel;
+    @BindView(R.id.descriptionTextView) TextView mDescriptionLabel;
 
     @BindView(R.id.addressTextView) TextView mAddressLabel;
 
-    @BindView(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
 
 
     private Event mEvent;
@@ -65,14 +66,32 @@ public class EventInfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_event_info, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.get().load(mEvent.getImageUrl()).into(mRestaurantImageView);
+        Picasso.get().load(mEvent.getImageUrl()).into(mEventImageView);
 
 
 
-        mRestaurantNameTextView.setText(mEvent.getName());
-        mPhoneLabel.setText(mEvent.getDescription());
+        mEventNameTextView.setText(mEvent.getName());
+        mDescriptionLabel.setText(mEvent.getDescription());
         mAddressLabel.setText(mEvent.getLocation().toString());
-
+        mWebsiteTextView.setOnClickListener(this);
+        mDescriptionLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
         return view;
+    }
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteTextView) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mEvent.getEventSiteUrl()));
+            startActivity(webIntent);
+        }
+
+        if (v == mAddressLabel) {
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("geo:" + mEvent.getLatitude()
+                            + "," + mEvent.getLongitude()
+                            + "?q=(" + mEvent.getName() + ")"));
+            startActivity(mapIntent);
+        }
     }
 }

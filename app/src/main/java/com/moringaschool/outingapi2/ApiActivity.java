@@ -65,7 +65,10 @@ public class ApiActivity extends AppCompatActivity {
                     mRecyclerView.setHasFixedSize(true);
 
                     showEvents();
-                } else {
+
+
+                }
+                else {
                     showUnsuccessfulMessage();
                 }
             }
@@ -88,7 +91,10 @@ public class ApiActivity extends AppCompatActivity {
         mErrorTextView.setText("Something went wrong. Please try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
-
+    private void showEmptyMessage() {
+        mErrorTextView.setText("Oups!I think There Are No Events Available In This Location!Try Somewhere else!");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
     private void showEvents() {
         mRecyclerView.setVisibility(View.VISIBLE);
     }

@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/restaurantImageView"
+            android:id="@+id/eventImageView"
             android:src="@drawable/club2"
             android:scaleType="centerCrop" />
 
@@ -31,23 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Event Name"
-                android:id="@+id/restaurantNameTextView"
+                android:id="@+id/eventNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/restaurantNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+
 
 
         </RelativeLayout>
@@ -73,53 +64,53 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveRestaurantButton"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="View on Yelp"
                     android:id="@+id/websiteTextView"
-
-                    android:drawablePadding="4dp"
-                    android:textColor="@color/colorPerfect"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Birthdayyy Partyyyy"
-                    android:id="@+id/phoneTextView"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/ic_navigation_black_24dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="View on Yelp"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawableLeft="@drawable/ic_description_white_24dp"
                     android:drawablePadding="14dp"
-                    android:textColor="@color/colorPerfect"
+                    android:gravity="center"
+                    android:text="Birthdayyy Partyyyy"
+                    android:textColor="#ffffff"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/addressTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"
-
-                    android:drawablePadding="4dp"
-                    android:id="@+id/addressTextView"
-                    android:textColor="@color/colorPerfect"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center_vertical"/>
+                    android:drawableLeft="@drawable/ic_location_on_white_24dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:text="123 SW Best Ever Ave. Portland, Oregon, 97222"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
 
-            <Button
+           <!-- <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Save Restaurant"
@@ -127,7 +118,7 @@
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
                 android:textColor="@color/colorPerfect"
-                android:textSize="15sp" />
+                android:textSize="15sp" />-->
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

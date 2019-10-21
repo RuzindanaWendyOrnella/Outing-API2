@@ -50,6 +50,7 @@
         android:paddingTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@id/locationTextView"
         android:layout_alignParentRight="true" />
 

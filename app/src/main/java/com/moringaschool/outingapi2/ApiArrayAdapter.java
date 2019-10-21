@@ -50,8 +50,6 @@ public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.Restau
         ImageView mEventImageView;
         @BindView(R.id.eventNameTextView) TextView mEventNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
-        @BindView(R.id.ratingTextView)
-        TextView mRatingTextView;
         private Context mContext;
 
         public RestaurantViewHolder(View itemView) {

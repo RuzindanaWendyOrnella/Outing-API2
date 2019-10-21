@@ -23,7 +23,7 @@
         android:layout_marginTop="41dp"
         android:fontFamily="@font/allan_bold"
         android:text="Let's Go On A Spree!"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorWhite"
         android:textSize="50sp"
         android:textStyle="bold"/>
     <Button
