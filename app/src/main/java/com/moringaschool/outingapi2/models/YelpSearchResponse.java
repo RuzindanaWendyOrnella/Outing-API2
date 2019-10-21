@@ -12,10 +12,10 @@ public class YelpSearchResponse {
 
     @SerializedName("events")
     @Expose
-    private List<Event> events = null;
+    public List<Event> events = null;
     @SerializedName("total")
     @Expose
-    private Integer total;
+    public Integer total;
 
     /**
      * No args constructor for use in serialization

@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+import java.util.List;
+import java.util.Locale;
+
 @Parcel
 public class Event {
 
@@ -14,13 +17,13 @@ public class Event {
     private Integer attendingCount;
     @SerializedName("category")
     @Expose
-    private String category;
+    private String category ;
     @SerializedName("cost")
     @Expose
-    private Object cost;
+    private double cost;
     @SerializedName("cost_max")
     @Expose
-    private Object costMax;
+    private double costMax;
     @SerializedName("description")
     @Expose
     private String description;
@@ -56,7 +59,7 @@ public class Event {
     private String name;
     @SerializedName("tickets_url")
     @Expose
-    private Object ticketsUrl;
+    private String ticketsUrl;
     @SerializedName("time_end")
     @Expose
     private String timeEnd;
@@ -68,7 +71,7 @@ public class Event {
     private Location location;
     @SerializedName("business_id")
     @Expose
-    private Object businessId;
+    private String businessId;
 
     /**
      * No args constructor for use in serialization
@@ -100,7 +103,7 @@ public class Event {
      * @param category
      * @param longitude
      */
-    public Event(Integer attendingCount, String category, Object cost, Object costMax, String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, Object ticketsUrl, String timeEnd, String timeStart, Location location, Object businessId) {
+    public Event(Integer attendingCount, String category, double cost, double costMax, String description, String eventSiteUrl, String id, String imageUrl, Integer interestedCount, Boolean isCanceled, Boolean isFree, Boolean isOfficial, Double latitude, Double longitude, String name, String ticketsUrl, String timeEnd, String timeStart, Location location, String businessId) {
         super();
         this.attendingCount = attendingCount;
         this.category = category;
@@ -140,19 +143,19 @@ public class Event {
         this.category = category;
     }
 
-    public Object getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(Object cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
-    public Object getCostMax() {
+    public double getCostMax() {
         return costMax;
     }
 
-    public void setCostMax(Object costMax) {
+    public void setCostMax(double costMax) {
         this.costMax = costMax;
     }
 
@@ -248,7 +251,7 @@ public class Event {
         return ticketsUrl;
     }
 
-    public void setTicketsUrl(Object ticketsUrl) {
+    public void setTicketsUrl(String ticketsUrl) {
         this.ticketsUrl = ticketsUrl;
     }
 
@@ -276,11 +279,11 @@ public class Event {
         this.location = location;
     }
 
-    public Object getBusinessId() {
+    public String getBusinessId() {
         return businessId;
     }
 
-    public void setBusinessId(Object businessId) {
+    public void setBusinessId(String businessId) {
         this.businessId = businessId;
     }
 

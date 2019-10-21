@@ -49,24 +49,25 @@
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="party"
-                android:id="@+id/cuisineTextView"
-                android:layout_below="@+id/restaurantNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/colorPerfect"
-                android:textStyle="italic" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+           <!-- <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listviewHuge"/>-->
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp" />-->
             <LinearLayout
-                android:orientation="vertical"
+
+        android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -95,8 +96,7 @@
                     android:layout_height="wrap_content"
                     android:text="Birthdayyy Partyyyy"
                     android:id="@+id/phoneTextView"
-
-                    android:drawablePadding="4dp"
+                    android:drawablePadding="14dp"
                     android:textColor="@color/colorPerfect"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -117,6 +117,7 @@
                     android:gravity="center_vertical"/>
 
             </LinearLayout>
+
 
             <Button
                 android:layout_width="match_parent"

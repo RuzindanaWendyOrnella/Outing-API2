@@ -1,6 +1,7 @@
 package com.moringaschool.outingapi2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.outingapi2.models.Event;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -42,7 +45,7 @@ public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.Restau
         return mEvents.size();
     }
 
-    public class RestaurantViewHolder extends RecyclerView.ViewHolder {
+    public class RestaurantViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.eventImageView)
         ImageView mEventImageView;
         @BindView(R.id.eventNameTextView) TextView mEventNameTextView;
@@ -55,6 +58,7 @@ public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.Restau
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindRestaurant(Event event) {
@@ -62,6 +66,15 @@ public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.Restau
             mEventNameTextView.setText(event.getName());
             mCategoryTextView.setText(event.getDescription());
 
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, EventInfoActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("events", Parcels.wrap(mEvents));
+            mContext.startActivity(intent);
         }
     }
 }
