@@ -7,27 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.outingapi2.models.Event;
 import com.squareup.picasso.Picasso;
-
 import org.parceler.Parcels;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 public class ApiArrayAdapter extends RecyclerView.Adapter<ApiArrayAdapter.RestaurantViewHolder> {
     private List<Event> mEvents;
     private Context mContext;
-
     public ApiArrayAdapter(Context context, List<Event> events) {
         mContext = context;
         mEvents = events;
     }
-
     @Override
     public ApiArrayAdapter.RestaurantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_each, parent, false);

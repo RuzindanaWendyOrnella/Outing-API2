@@ -42,25 +42,20 @@ public class ApiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api);
         ButterKnife.bind(this);
-
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         System.out.println(location);
         YelpApi client = YelpClient.getClient();
-
         Call<YelpSearchResponse> call = client.getEvents(location);
-
         call.enqueue(new Callback<YelpSearchResponse>() {
             @Override
             public void onResponse(Call<YelpSearchResponse> call, Response<YelpSearchResponse> response) {
                 hideProgressBar();
-
                 if (response.isSuccessful()) {
                     events = response.body().getEvents();
                     mAdapter = new ApiArrayAdapter(ApiActivity.this, events);
                     mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager =
-                            new LinearLayoutManager(ApiActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ApiActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
@@ -69,15 +64,15 @@ public class ApiActivity extends AppCompatActivity {
 
                 }
                 else {
-                    showUnsuccessfulMessage();
+                        showUnsuccessfulMessage();
                 }
             }
 
-            @Override
-            public void onFailure(Call<YelpSearchResponse> call, Throwable t) {
-                hideProgressBar();
-                showFailureMessage();
-            }
+                @Override
+                public void onFailure(Call<YelpSearchResponse> call, Throwable t) {
+                    hideProgressBar();
+                    showFailureMessage();
+                }
 
         });
     }
@@ -89,10 +84,6 @@ public class ApiActivity extends AppCompatActivity {
 
     private void showUnsuccessfulMessage() {
         mErrorTextView.setText("Something went wrong. Please try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
-    private void showEmptyMessage() {
-        mErrorTextView.setText("Oups!I think There Are No Events Available In This Location!Try Somewhere else!");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
     private void showEvents() {

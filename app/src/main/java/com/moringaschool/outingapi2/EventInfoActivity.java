@@ -26,10 +26,8 @@ public class EventInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_info);
         ButterKnife.bind(this);
-
         mEvents = Parcels.unwrap(getIntent().getParcelableExtra("events"));
         int startingPosition = getIntent().getIntExtra("position", 0);
-
         adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mEvents);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);

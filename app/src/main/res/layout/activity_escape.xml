@@ -12,7 +12,6 @@
         android:layout_marginTop="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/club1" />
-
     <Button
         android:id="@+id/eventButton"
         android:layout_width="184dp"
@@ -30,7 +29,6 @@
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
         android:typeface="serif" />
-
     <Button
         android:id="@+id/searchButton"
         android:layout_width="184dp"

@@ -17,11 +17,6 @@ import com.moringaschool.outingapi2.models.Event;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -65,11 +60,7 @@ public class EventInfoFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_event_info, container, false);
         ButterKnife.bind(this, view);
-
         Picasso.get().load(mEvent.getImageUrl()).into(mEventImageView);
-
-
-
         mEventNameTextView.setText(mEvent.getName());
         mDescriptionLabel.setText(mEvent.getDescription());
         mAddressLabel.setText(mEvent.getLocation().toString());
