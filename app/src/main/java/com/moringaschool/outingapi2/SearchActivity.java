@@ -8,7 +8,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 public class SearchActivity extends AppCompatActivity {
     @BindView(R.id.EditSearchText) EditText mEditSearchText;
     @BindView(R.id.SubmitSearchButton) Button mSubmitSearchButton;
