@@ -7,7 +7,7 @@ Ruzindana Wendy Ornella,
 programmmer at wecode.
 
 ## Setup/Installation Requirements
-*Android Studio
+* Android Studio
 * git-hub
 * emulator
 ## BDD
