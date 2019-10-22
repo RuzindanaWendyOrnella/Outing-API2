@@ -1,5 +1,5 @@
 # Outing-API2
-# {Brief description of project}
+
 this is my android app that allows a user to search for events to go to or that are near their location.
 22/10/2019
 #### By 
